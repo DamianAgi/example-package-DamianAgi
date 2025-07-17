@@ -6,8 +6,16 @@ build-backend = "hatchling.build"
 
 [project] 
 name = "example_package_DamianAgi" 
-version = "0.1.0" 
 dependencies = ["numpy"]
 
 [project.optional-dependencies]
 test = ["pytest"]
+
+# pyproject.toml 
+[project] 
+dynamic = ["version"] 
+
+# use hatchling to dynamically update version number (from __init__)
+[tool.hatch]
+version.path = "src/example_package_DamianAgi/__init__.py"
+
